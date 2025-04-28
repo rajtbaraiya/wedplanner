@@ -1,0 +1,344 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+
+
+:root{
+    --main-color:#f45866;
+    --primary-color:#404068;
+    --white:#fff;
+    --bg:#f7f0ed;
+    --light-black:#333;
+    --box-shadow: 0 .5rem 1rem rgba(0,0,0,1);
+}
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+    transition: .2s linear;
+    text-transform: capitalize;
+
+
+}
+
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+html::-webkit-scrollbar{
+    width: .8rem;
+
+}
+
+html::-webkit-scrollbar-track{
+    background: var(--white);
+}
+
+html::-webkit-scrollbar-thumb{
+    background: var(--primary-color);
+    border-radius: 5rem;
+}
+
+
+
+body{
+    background: var(--bg);
+}
+
+body.active{
+    --primary-color: #fff;
+    --light-black: #eee;
+    --white: #333;
+    --bg: #222;
+    --box-shadow: 0.5rem 1.5rem rgba(0,0,0,.4);
+}
+
+section{
+    padding: 3rem 9%;
+}
+
+.heading{
+    text-align: center;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+    font-size: 4rem;
+    margin-top: 2rem;
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .8rem 2.8rem;
+    border-radius: 5rem;
+    border-top-left-radius: 0;
+    border: .2rem solid var(--main-color);
+    cursor: pointer;
+    color: var(--main-color);
+    /*color: rgb(13, 13, 14);*/
+    font-size: 1.7rem;
+    overflow: hidden;
+    z-index: 0;
+    position: relative;
+}
+
+.btn::before{
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--main-color);
+    z-index: -1;
+    transition: .2s linear;
+    clip-path: circle(0% at 0% 5%);
+}
+
+.btn:hover::before{
+    clip-path: circle(100%);
+}
+
+.btn:hover{
+    color: var(--white);
+}
+
+
+
+
+/* header */
+
+.header{
+    position: fixed;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 9%;
+    background: var(--white);
+    box-shadow: var(--box-shadow);
+}
+
+.header .logo{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    color: var(--primary-color);
+}
+
+.header .logo i{
+    color: var(--main-color);
+    padding-right: .5rem;
+}
+
+.header .navbar a{
+    font-size: 1.5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    margin-left: 2rem;
+    color: var(--primary-color);
+    padding-block: 1.6rem;
+    position: relative;
+}
+
+.header .navbar a:hover{
+    color: var(--main-color);
+}
+
+.header .navbar a::before{
+    content: '';
+    position: absolute;
+    height: .3rem;
+    border-block: .1rem solid var(--main-color);
+    bottom: .5rem;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: .5s ease;
+}
+
+.header .navbar a:is(:hover, :focus)::before{
+    transform: scaleX(1);
+}
+
+.header .icons div{
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.5rem;
+    font-size: 2rem;
+    border-radius: .5rem;
+    margin-left: .5rem;
+    cursor: pointer;
+    color: var(--primary-color);
+    background: var(--main-color);
+    text-align: center;
+}
+
+.header .icons div:hover{
+    color: var(--main-color);
+    background: var(--primary-color);
+}
+
+#menu{
+    display: none;
+}
+
+/* end */
+
+.gallery .heading{
+    
+    color: blueviolet;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.gallery .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+    gap:.5rem;
+}
+
+.gallery .box-container .box{
+    position: relative;
+    border:0rem solid #333;
+    border-radius: .5rem;
+    height: 25rem;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.gallery .box-container .box img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.gallery .box-container .box:hover img{
+    transform: scale(1.1);
+    filter: grayscale();
+}
+
+.gallery .box-container .box .title{
+    position: absolute;
+    top:-10rem; left:0; right: 0;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.gallery .box-container .box:hover .title{
+    top: 0;
+}
+
+.gallery .box-container .box .icons{
+    position: absolute;
+    bottom: -10rem; left: 0; right: 0;
+    background: #333;
+    padding-top: 1rem;
+    text-align: center;
+    
+}
+
+.gallery .box-container .box:hover .icons{
+    bottom: 0;
+}
+
+.gallery .box-container .box .icons a{
+    font-size: 1rem;
+    margin: .5rem 1rem;
+    color: #fff;
+}
+
+.gallery .box-container .box .icons a:hover{
+    color: blue;
+}
+
+
+/* photos css*/
+
+
+.photo .gallery-slider .swiper-slide{
+    overflow: hidden;
+    height: 50rem;
+    width: 35rem;
+    border-radius: .5rem;
+}
+
+.photo .gallery-slider .swiper-slide img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+/* photo section ends*/
+
+/* media query */
+
+@media(max-width: 991px){
+    html{
+        font-size: 55%;
+    }
+
+    .header{
+        padding: 2rem, 5rem;
+    }
+
+    section{
+        padding: 3rem;
+    }
+}
+
+
+@media(max-width: 768px){
+    #menu{
+        display: inline-block;
+    }
+
+    .header .navbar{
+        position: absolute;
+        top: 99%; left: 0; right: 0;
+        background: var(--bg);
+        clip-path: polygon(0 0, 100% 0, 0 0);
+    }
+
+    .header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .header .navbar a{
+        display: flex;
+        justify-content: center;
+        background: var(--white);
+        border-radius: .5rem;
+        padding: 1.3rem;
+        margin: 1.3rem;
+        font-size: 2rem;
+    }
+
+    .home .content h3{
+        font-size: 4rem;
+    }
+}
+
+@media(max-width: 450px){
+    html{
+        font-size: 50;
+    }
+}
+
+
+/*end*/
